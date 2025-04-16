@@ -20,6 +20,18 @@ public class Nominas {
     }
     //los getter y setter de horas y tarifas horas
 
+    public Personal getP() {
+        return p;
+    }
+
+    public double getSalarioBruto() {
+        return salarioBruto;
+    }
+
+    public void setP(Personal p) {
+        this.p = p;
+    }
+
     public double getNumHoras() {
         return numHoras;
     }
@@ -65,31 +77,32 @@ public class Nominas {
         double D_SS,D_CC,D_Medic,D_Pension,D_Paro,D_Pen_Comp,D_Jub_Ant,salarioNeto,deducionTotal;
         System.out.println(p.toString());
         System.out.println("/**********Salario Bruto**********/");
-        System.out.println("Salario Bruto: "+this.salarioBruto);
+        System.out.printf("Salario Bruto: %.2f%n",this.salarioBruto);
         System.out.println("/**********Deducciones**********/");
         D_SS=this.calculoDeduciones(D_SS1);
-        System.out.println("Deduccion Seguridad Social: "+D_SS);
+        System.out.printf("Deduccion Seguridad Social:%.2f%n ",D_SS);
         D_CC=this.calculoDeduciones(D_CC2);
-        System.out.println("Deduccion Contingencias Comunes: "+D_CC);
+        System.out.printf("Deduccion Contingencias Comunes:%.2f%n ",D_CC);
         D_Medic=this.calculoDeduciones(D_M);
-        System.out.println("Deduccion medico: "+D_Medic);
+        System.out.printf("Deduccion medico:%.2f €%n ",D_Medic);
         D_Pension=this.calculoDeduciones(D_P);
-        System.out.println("Deduccion pension: "+D_Pension);
+        System.out.printf("Deduccion pension:%.2f%n ",D_Pension);
         D_Paro=this.calculoDeduciones(D_PARO);
-        System.out.println("Deduccion paro: "+D_Paro);
+        System.out.printf("Deduccion paro:%.2f%n ",D_Paro);
         D_Pen_Comp=this.calculoDeduciones(D_PENSSION_C);
-        System.out.println("Deduccion pen_comp: "+D_Pen_Comp);
+        System.out.printf("Deduccion pen_comp:%.2f%n ",D_Pen_Comp);
         D_Jub_Ant=this.calculoDeduciones(D_JUBILACION);
-        System.out.println("Deduccion jub_ant: "+D_Jub_Ant);
+        System.out.printf("Deduccion jub_ant:%.2f%n ",D_Jub_Ant);
         deducionTotal=D_SS+D_CC+D_Medic+D_Pension+D_Paro+D_Pen_Comp+D_Jub_Ant;
         salarioNeto=this.salarioBruto-deducionTotal;
         System.out.println("*********Total deducciones**********");
-        System.out.println(deducionTotal);
+        System.out.printf("%.2f%n",deducionTotal);
         System.out.println("**********Salario Neto**********");
-        System.out.println("Salario Neto:\n "+salarioNeto);
+        System.out.printf ("Salario Neto:%.2f%n ",salarioNeto);
         System.out.println("******Prima Familiar********** "+calcularPrimaFamiliar());
+        double aIngresar=salarioNeto+calcularPrimaFamiliar();
         System.out.println("*********** Total A Ingresar **********");
-        System.out.println(salarioNeto+calcularPrimaFamiliar()+"€");
+        System.out.printf("a Ingresar:%.2f%n ",aIngresar);
 
 
 
